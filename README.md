@@ -1,0 +1,1 @@
+# Spec: https://github.com/woltapp/backend-internship-2025
