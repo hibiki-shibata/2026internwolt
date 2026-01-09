@@ -1,9 +1,7 @@
+package org.dopc.calcDeliveryFee.model
+
 data class StaticVenueInfo(
     val venue_raw: VenueRaw,
-)
-
-data class VenueRaw(
-    val location: Location,
 )
 
 data class Coordinates(

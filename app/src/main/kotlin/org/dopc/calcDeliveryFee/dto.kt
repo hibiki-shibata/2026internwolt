@@ -1,3 +1,5 @@
+package org.dopc.calcDeliveryFee.dto
+
 data class deliveryOrderPriceRequest(
     val venue_slug: String,
     val cart_value: Int,

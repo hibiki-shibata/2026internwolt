@@ -1,3 +1,5 @@
+package org.dopc.calcDeliveryFee.model
+
 data class DynamicVenueInfo(
     val venue_raw: VenueRaw,
 )

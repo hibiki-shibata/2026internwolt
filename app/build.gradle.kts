@@ -34,6 +34,10 @@ dependencies {
     testImplementation("io.ktor:ktor-server-test-host:3.3.2")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:2.2.21")
 
+    // Ktor Client
+     implementation("io.ktor:ktor-client-core:3.3.2")
+    implementation("io.ktor:ktor-client-cio:3.3.2")
+
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
