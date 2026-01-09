@@ -35,8 +35,13 @@ dependencies {
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:2.2.21")
 
     // Ktor Client
-     implementation("io.ktor:ktor-client-core:3.3.2")
+    implementation("io.ktor:ktor-client-core:3.3.2")
     implementation("io.ktor:ktor-client-cio:3.3.2")
+    
+    // Serialization
+    implementation("io.ktor:ktor-client-content-negotiation:3.3.2")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:3.3.2")
+
 
 }
 

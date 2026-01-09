@@ -2,39 +2,28 @@
 package org.dopc.calcDeliveryFee.client
 
 import io.ktor.client.*
+import io.ktor.client.call.*
 import io.ktor.client.engine.cio.*
+import io.ktor.client.plugins.contentnegotiation.*
+import io.ktor.client.plugins.*
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
+import io.ktor.http.*
+import io.ktor.serialization.kotlinx.json.*
+
 import org.dopc.calcDeliveryFee.model.*
 
 suspend fun dynamicVenueInfoClient(): DynamicVenueInfo {
-    val client = HttpClient(CIO)
-    val response: HttpResponse = client.get("https://ktor.io/")
+    val client = HttpClient(CIO){
+            expectSuccess = true
+            install(ContentNegotiation) {
+                json()
+            }
+            install(HttpRequestRetry) {
+                maxRetries = 3
+            }
+    }
+    val response: DynamicVenueInfo = client.get("https://consumer-api.development.dev.woltapi.com/home-assignment-api/v1/venues/home-assignment-venue-tokyo/dynamic").body()
     client.close()
-    return DynamicVenueInfo(
-            venue_raw = VenueRaw(
-                delivery_specs = DeliverySpecs(
-                    order_minimum_no_surcharge = 1000,
-                    delivery_pricing = DeliveryPricing(
-                        base_price = 200,
-                        distance_ranges = listOf(
-                            DistanceRange(
-                                min = 0,
-                                max = 5000,
-                                a = 100,
-                                b = 2,
-                                flag = null
-                            ),
-                            DistanceRange(
-                                min = 5001,
-                                max = 10000,
-                                a = 200,
-                                b = 3,
-                                flag = null
-                            )
-                        )
-                    )
-                )
-            )
-        )
+    return response
 }
