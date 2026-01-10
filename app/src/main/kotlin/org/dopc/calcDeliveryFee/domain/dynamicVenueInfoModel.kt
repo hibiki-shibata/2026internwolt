@@ -1,4 +1,4 @@
-package org.dopc.calcDeliveryFee.model
+package org.dopc.calcDeliveryFee.domain
 
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonIgnoreUnknownKeys
@@ -6,12 +6,12 @@ import kotlinx.serialization.json.JsonIgnoreUnknownKeys
 @Serializable
 @JsonIgnoreUnknownKeys
 data class DynamicVenueInfo(
-    val venue_raw: VenueRaw,
+    val venue_raw: VenueRawDynamic,
 )
 
 @Serializable
 @JsonIgnoreUnknownKeys
-data class VenueRaw(
+data class VenueRawDynamic(
     val delivery_specs: DeliverySpecs,
 )
 
