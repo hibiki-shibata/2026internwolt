@@ -2,7 +2,6 @@ package org.dopc.service.pricing
 
 import kotlin.test.*
 import kotlin.test.assertEquals
-// import kotlin.test.assertTrue
 import kotlinx.coroutines.*
 import org.dopc.model.DeliveryPricing
 import org.dopc.model.DistanceRange
