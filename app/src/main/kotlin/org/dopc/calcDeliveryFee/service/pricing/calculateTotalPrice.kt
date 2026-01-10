@@ -1,6 +1,6 @@
 package org.dopc.calcDeliveryFee.service.pricing
 
 
-fun deliveryFee(): Int {
-    return 100
+fun calculateTotalPrice(): Int {
+    return 1000
 }

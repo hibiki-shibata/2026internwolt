@@ -13,13 +13,15 @@ class DopcService(
         val dynamicVenueInfo: DynamicVenueInfo = venueInfoClient.getDynamicVenueInfo(req.venue_slug)
         val staticVenueInfo: StaticVenueInfo = venueInfoClient.getStaticVenueInfo(req.venue_slug)
 
-
         return DopcResDTO(
-           total_price = totalPrice(),
-            small_order_surcharge = smallOrderSurchage(),
-            cart_value = 0,
+           total_price = calculateTotalPrice(),
+           small_order_surcharge = calculateSmallOrderSurchage(
+                cartValue = req.cart_value,
+                minCarValue = dynamicVenueInfo.venue_raw.delivery_specs.order_minimum_no_surcharge
+            ),
+            cart_value = req.cart_value,
             delivery = DeliveryFee(
-                fee = deliveryFee(),
+                fee = calculateDeliveryFee(),
                 distance = distanceCalculator(
                     venueCoordinates = Coordinates(
                         lon = staticVenueInfo.venue_raw.location.coordinates[0],

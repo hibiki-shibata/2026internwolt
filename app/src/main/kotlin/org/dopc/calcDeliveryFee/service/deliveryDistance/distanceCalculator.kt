@@ -3,25 +3,23 @@ package org.dopc.calcDeliveryFee.service.deliveryDistance
 import kotlin.math.*
 import org.dopc.calcDeliveryFee.model.Coordinates
 
-fun distanceCalculator(venueCoordinates: Coordinates, userCoordinates: Coordinates): Int {
-    
-    val venueLatRadius: Double = Math.toRadians(venueCoordinates.lat)
-    val venueLonRadius: Double = Math.toRadians(venueCoordinates.lon)
-    val userLatRadius: Double = Math.toRadians(userCoordinates.lat)
-    val userLonRadius: Double = Math.toRadians(userCoordinates.lon)
+fun distanceCalculator(
+    venueCoordinates: Coordinates,
+    userCoordinates: Coordinates
+    ): Int {    
+        val eathRadius: Double = 6371.0
+        val venueLatRadius: Double = Math.toRadians(venueCoordinates.lat)
+        val venueLonRadius: Double = Math.toRadians(venueCoordinates.lon)
+        val userLatRadius: Double = Math.toRadians(userCoordinates.lat)
+        val userLonRadius: Double = Math.toRadians(userCoordinates.lon)
 
-    val differenceLat: Double = userLatRadius - venueLatRadius
-    val differenceLon: Double = userLonRadius - venueLonRadius
-    val eathRadius: Double = 6371.0 
+        val differenceLat: Double = userLatRadius - venueLatRadius
+        val differenceLon: Double = userLonRadius - venueLonRadius
+        val haversineComponent: Double = sin(differenceLat / 2).pow(2) + cos(venueLatRadius) * cos(userLatRadius) * sin(differenceLon / 2).pow(2)
+        val centralAngle: Double = 2 * asin(sqrt(haversineComponent))
 
-    val haversineComponent: Double = sin(differenceLat / 2).pow(2) + cos(venueLatRadius) * cos(userLatRadius) * sin(differenceLon / 2).pow(2)
+        val straightDistanceMeter: Double = eathRadius * centralAngle * 1000        
 
-    val centralAngle: Double = 2 * asin(sqrt(haversineComponent))
-
-    val straightDistanceMeter: Double = eathRadius * centralAngle * 1000
-
-    //Ensure distance is always positive value  
-    if (straightDistanceMeter < 0) throw Exception("calculated distance was negative")
-
-    return straightDistanceMeter.toInt()
+        if (straightDistanceMeter < 0) throw Exception("calculated distance was negative")
+        return straightDistanceMeter.toInt()
 }
