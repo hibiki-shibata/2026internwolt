@@ -4,10 +4,10 @@ import kotlin.test.*
 import kotlinx.coroutines.*
 
 class VenueInfoClientTest {
-    val venueInfoClient = VenueInfoClient()
+    val venueInfoClient = VenueInfoClient("home-assignment-venue-tokyo")
     @Test
     fun dynamicVenueInfoClientTest() = runBlocking {
-        val result = venueInfoClient.getDynamicVenueInfoOf("home-assignment-venue-tokyo")
+        val result = venueInfoClient.getDynamicVenueInfoOf()
         println(result)
         assertEquals("Hello, world!", "Hello, world!")
     }
