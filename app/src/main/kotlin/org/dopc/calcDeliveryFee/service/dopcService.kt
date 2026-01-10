@@ -1,16 +1,35 @@
 package org.dopc.calcDeliveryFee.service
 
 import org.dopc.calcDeliveryFee.dto.*
+import org.dopc.calcDeliveryFee.service.pricing.*
+import org.dopc.calcDeliveryFee.service.deliveryDistance.*
+import org.dopc.calcDeliveryFee.model.*
+import org.dopc.calcDeliveryFee.client.VenueInfoClient
 
-class DopcService {
-    fun calculate(): DopcResDTO {
+class DopcService(
+    private val venueInfoClient: VenueInfoClient = VenueInfoClient()
+) {
+    suspend fun calculate(req: DopcReqDTO): DopcResDTO {
+        val dynamicVenueInfo: DynamicVenueInfo = venueInfoClient.getDynamicVenueInfo(req.venue_slug)
+        val staticVenueInfo: StaticVenueInfo = venueInfoClient.getStaticVenueInfo(req.venue_slug)
+
+
         return DopcResDTO(
-           total_price = 0,
-            small_order_surcharge = 0,
+           total_price = totalPrice(),
+            small_order_surcharge = smallOrderSurchage(),
             cart_value = 0,
             delivery = DeliveryFee(
-                fee = 0,
-                distance = 0
+                fee = deliveryFee(),
+                distance = distanceCalculator(
+                    venueCoordinates = Coordinates(
+                        lon = staticVenueInfo.venue_raw.location.coordinates[0],
+                        lat = staticVenueInfo.venue_raw.location.coordinates[1]
+                    ),
+                    userCoordinates = Coordinates(
+                        lon = req.user_lon,
+                        lat = req.user_lat
+                    )
+                )
             )
         )    
     }

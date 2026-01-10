@@ -20,3 +20,8 @@ data class VenueRawStatic(
 data class Location(
    val coordinates: List<Double>,
 )
+
+data class Coordinates(
+    val lon: Double,
+    val lat: Double
+)
