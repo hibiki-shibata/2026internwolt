@@ -2,13 +2,14 @@ package org.dopc.calcDeliveryFee.service.pricing
 
 import org.dopc.calcDeliveryFee.model.DeliveryPricing
 import org.dopc.calcDeliveryFee.model.DistanceRange
+import org.dopc.calcDeliveryFee.exception.PricingCalculationException
 
 fun calculateDeliveryFee(deliveryPricing: DeliveryPricing, deliveryDistance: Int): Int {
     for (range in deliveryPricing.distance_ranges) {
-        if (range.min <= deliveryDistance && (deliveryDistance < range.max || range.max == 0)) {   
+        if (range.min <= deliveryDistance && ( range.max == 0 || deliveryDistance < range.max)) {   
             val distanceBasedComponent: Int = Math.round(range.b * deliveryDistance / 10).toInt()          
             return deliveryPricing.base_price + range.a + distanceBasedComponent
         }
     }
-    throw Exception("No valid distance range found for delivery distance: $deliveryDistance")
+    throw PricingCalculationException("Delivery distance is too long, delivery not available in your location")
 }

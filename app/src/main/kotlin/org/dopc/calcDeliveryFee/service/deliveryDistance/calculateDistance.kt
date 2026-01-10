@@ -3,7 +3,7 @@ package org.dopc.calcDeliveryFee.service.deliveryDistance
 import kotlin.math.*
 import org.dopc.calcDeliveryFee.model.Coordinates
 
-fun distanceCalculator(
+fun calculateDistance(
     venueCoordinates: Coordinates,
     userCoordinates: Coordinates
     ): Int {    
