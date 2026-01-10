@@ -1,8 +1,8 @@
-package org.dopc.calcDeliveryFee.client
+package org.dopc.client
 
-import org.dopc.calcDeliveryFee.model.DynamicVenueInfo
-import org.dopc.calcDeliveryFee.model.StaticVenueInfo
-import org.dopc.calcDeliveryFee.exception.ClientException
+import org.dopc.model.DynamicVenueInfo
+import org.dopc.model.StaticVenueInfo
+import org.dopc.exception.ClientException
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get

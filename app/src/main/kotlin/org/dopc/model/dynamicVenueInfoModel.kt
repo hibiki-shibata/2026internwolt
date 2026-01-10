@@ -1,4 +1,4 @@
-package org.dopc.calcDeliveryFee.model
+package org.dopc.model
 
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonIgnoreUnknownKeys

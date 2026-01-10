@@ -1,7 +1,7 @@
-package org.dopc.calcDeliveryFee.service.deliveryDistance
+package org.dopc.service.deliveryDistance
 
 import kotlin.math.*
-import org.dopc.calcDeliveryFee.model.Coordinates
+import org.dopc.model.Coordinates
 
 fun calculateDistance(
     venueCoordinates: Coordinates,

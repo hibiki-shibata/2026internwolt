@@ -1,8 +1,8 @@
-package org.dopc.calcDeliveryFee.service.pricing
+package org.dopc.service.pricing
 
-import org.dopc.calcDeliveryFee.model.DeliveryPricing
-import org.dopc.calcDeliveryFee.model.DistanceRange
-import org.dopc.calcDeliveryFee.exception.PricingCalculationException
+import org.dopc.model.DeliveryPricing
+import org.dopc.model.DistanceRange
+import org.dopc.exception.PricingCalculationException
 
 fun calculateDeliveryFee(deliveryPricing: DeliveryPricing, deliveryDistance: Int): Int {
     for (range in deliveryPricing.distance_ranges) {

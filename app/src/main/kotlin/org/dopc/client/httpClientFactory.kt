@@ -1,4 +1,4 @@
-package org.dopc.calcDeliveryFee.client
+package org.dopc.client
 
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.cio.CIO

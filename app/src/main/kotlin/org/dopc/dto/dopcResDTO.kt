@@ -1,4 +1,4 @@
-package org.dopc.calcDeliveryFee.dto
+package org.dopc.dto
 
 data class DopcResDTO(
  val total_price: Int,

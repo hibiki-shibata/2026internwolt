@@ -1,4 +1,4 @@
-package org.dopc.calcDeliveryFee.dto
+package org.dopc.dto
 
 data class DopcReqDTO(
     val venue_slug: String,

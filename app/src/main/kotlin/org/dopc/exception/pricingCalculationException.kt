@@ -1,4 +1,4 @@
-package org.dopc.calcDeliveryFee.exception
+package org.dopc.exception
 
 class PricingCalculationException(
     override val message: String = "Pricing calculation failed with no additional information",

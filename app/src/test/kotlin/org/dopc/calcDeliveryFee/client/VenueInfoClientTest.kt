@@ -1,4 +1,4 @@
-package org.dopc.calcDeliveryFee.client
+package org.dopc.client
 
 import kotlin.test.*
 import kotlinx.coroutines.*

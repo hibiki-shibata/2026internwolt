@@ -1,10 +1,10 @@
-package org.dopc.calcDeliveryFee.service
+package org.dopc.service
 
-import org.dopc.calcDeliveryFee.dto.*
-import org.dopc.calcDeliveryFee.service.pricing.*
-import org.dopc.calcDeliveryFee.service.deliveryDistance.*
-import org.dopc.calcDeliveryFee.model.*
-import org.dopc.calcDeliveryFee.client.VenueInfoClient
+import org.dopc.dto.*
+import org.dopc.service.pricing.*
+import org.dopc.service.deliveryDistance.*
+import org.dopc.model.*
+import org.dopc.client.VenueInfoClient
 
 class DopcService(
     private val venueInfoClient: VenueInfoClient = VenueInfoClient()

@@ -1,4 +1,4 @@
-package org.dopc.calcDeliveryFee.exception
+package org.dopc.exception
 
 class ClientException(
     override val message: String? = "Server client call failed with no additional information"
