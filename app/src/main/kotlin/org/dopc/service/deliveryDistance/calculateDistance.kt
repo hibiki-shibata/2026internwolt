@@ -21,5 +21,5 @@ suspend fun calculateDistance(
         val straightDistanceMeter: Double = eathRadius * centralAngle * 1000        
 
         if (straightDistanceMeter < 0) throw Exception("calculated distance was negative")
-        return straightDistanceMeter.toInt()
+        return Math.round(straightDistanceMeter).toInt()
 }

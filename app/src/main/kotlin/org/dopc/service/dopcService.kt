@@ -39,7 +39,7 @@ class DopcService(
             ),                
             small_order_surcharge = smallOrderSurchage,
             cart_value = req.cart_value,
-            delivery = DeliveryFee(
+            delivery = Delivery(
                 fee = deliveryFee,
                 distance = deliveryDistance
             )

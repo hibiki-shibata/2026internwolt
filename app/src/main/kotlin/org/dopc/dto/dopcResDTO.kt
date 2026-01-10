@@ -4,10 +4,10 @@ data class DopcResDTO(
  val total_price: Int,
  val small_order_surcharge: Int,
  val cart_value: Int,
- val delivery: DeliveryFee,
+ val delivery: Delivery,
 )
 
-data class DeliveryFee(
+data class Delivery(
     val fee: Int,
     val distance: Int
 )
