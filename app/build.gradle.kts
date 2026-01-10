@@ -10,6 +10,8 @@ plugins {
     // alias(libs.plugins.kotlin.jvm)
     id("org.jetbrains.kotlin.jvm") version "2.2.21"
     id("io.ktor.plugin") version "3.3.2"
+    
+    kotlin("plugin.serialization") version "2.3.0"
     application
 }
 
@@ -20,10 +22,10 @@ repositories {
 
 dependencies {
     // Use the Kotlin Test integration.
-    testImplementation("org.jetbrains.kotlin:kotlin-test")
+    // testImplementation("org.jetbrains.kotlin:kotlin-test")
     // Use the JUnit 5 integration.
     testImplementation(libs.junit.jupiter.engine)
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    // testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     // This dependency is used by the application.
     // implementation(libs.guava)
 
@@ -32,7 +34,10 @@ dependencies {
     implementation("ch.qos.logback:logback-classic:1.4.11")
     implementation("io.ktor:ktor-server-config-yaml:3.3.2")
     testImplementation("io.ktor:ktor-server-test-host:3.3.2")
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit:2.2.21")
+    // testImplementation("org.jetbrains.kotlin:kotlin-test-junit:2.2.21")
+    testImplementation("org.jetbrains.kotlin:kotlin-test:2.2.21")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.10.2")
+
 
     // Ktor Client
     implementation("io.ktor:ktor-client-core:3.3.2")
@@ -41,6 +46,7 @@ dependencies {
     // Serialization
     implementation("io.ktor:ktor-client-content-negotiation:3.3.2")
     implementation("io.ktor:ktor-serialization-kotlinx-json:3.3.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
 
 
 }

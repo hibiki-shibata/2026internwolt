@@ -1,7 +1,4 @@
 // https://consumer-api.development.dev.woltapi.com/home-assignment-api/v1/venues/<VENUE SLUG>/static
-
-
-// https://consumer-api.development.dev.woltapi.com/home-assignment-api/v1/venues/<VENUE SLUG>/dynamic
 package org.dopc.calcDeliveryFee.client
 
 import io.ktor.client.*

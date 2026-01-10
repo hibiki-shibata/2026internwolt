@@ -11,9 +11,9 @@ import io.ktor.client.statement.*
 import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
 
-import org.dopc.calcDeliveryFee.model.*
+import org.dopc.calcDeliveryFee.model.DynamicVenueInfo
 
-suspend fun dynamicVenueInfoClient(): DynamicVenueInfo {
+suspend fun dynamicVenueInfoClient(): Any {
     val client = HttpClient(CIO){
             expectSuccess = true
             install(ContentNegotiation) {
@@ -23,7 +23,9 @@ suspend fun dynamicVenueInfoClient(): DynamicVenueInfo {
                 maxRetries = 3
             }
     }
-    val response: DynamicVenueInfo = client.get("https://consumer-api.development.dev.woltapi.com/home-assignment-api/v1/venues/home-assignment-venue-tokyo/dynamic").body()
+    val httpResponse: HttpResponse = client.get("https://consumer-api.development.dev.woltapi.com/home-assignment-api/v1/venues/home-assignment-venue-tokyo/dynamic")
+    val response: DynamicVenueInfo = httpResponse.body()
+    println(response)
     client.close()
     return response
 }
