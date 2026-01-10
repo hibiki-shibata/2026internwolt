@@ -2,10 +2,10 @@ package org.dopc
 
 import io.ktor.server.application.*
 
-fun main(args: Array<String>) {
+suspend fun main(args: Array<String>) {
     io.ktor.server.netty.EngineMain.main(args)
 }
 
-fun Application.module() {
+suspend fun Application.module() {
     configureRouting()
 }

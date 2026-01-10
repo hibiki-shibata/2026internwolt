@@ -3,7 +3,7 @@ package org.dopc.service.deliveryDistance
 import kotlin.math.*
 import org.dopc.model.Coordinates
 
-fun calculateDistance(
+suspend fun calculateDistance(
     venueCoordinates: Coordinates,
     userCoordinates: Coordinates
     ): Int {    
