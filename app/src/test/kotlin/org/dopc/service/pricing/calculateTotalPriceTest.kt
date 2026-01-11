@@ -8,10 +8,10 @@ import org.dopc.model.DistanceRange
 import org.dopc.exception.PricingCalculationException
 
 
-class calculateTotalPriceTest {
+class CalculateTotalPriceTest {
 // suspend fun calculateTotalPrice(cartValue: Int, smallOrderSurchage: Int, deliveryFee: Int): Int {
     @Test
-    fun `general case`() = runBlocking {
+    fun `general case`(){
         val cartValue = 400
         val smallOrderSurchage = 100
         val deliveryFee = 500
@@ -21,7 +21,7 @@ class calculateTotalPriceTest {
     }
 
     @Test
-    fun `case with zero surcharge and delivery fee`() = runBlocking {
+    fun `case with zero surcharge and delivery fee`(){
         val cartValue = 600
         val smallOrderSurchage = 0
         val deliveryFee = 0
@@ -31,7 +31,7 @@ class calculateTotalPriceTest {
     }
 
     @Test
-    fun `case with all zero values`() = runBlocking {
+    fun `case with all zero values`(){
         val cartValue = 0
         val smallOrderSurchage = 0
         val deliveryFee = 0
@@ -40,39 +40,33 @@ class calculateTotalPriceTest {
     }
 
     @Test
-    fun `negative cart value throws exception`() {
+    fun `negative cart value throws exception`(){
         val cartValue = -100
         val smallOrderSurchage = 50
         val deliveryFee = 200
 
         assertFailsWith<PricingCalculationException> {
-        runBlocking {
             calculateTotalPrice(cartValue, smallOrderSurchage, deliveryFee)
-        }
      }
     }
 
     @Test
-    fun `negative small order surcharge throws exception`() {
+    fun `negative small order surcharge throws exception`(){
         val cartValue = 300
         val smallOrderSurchage = -50
         val deliveryFee = 200
         assertFailsWith<PricingCalculationException> {
-            runBlocking {
             calculateTotalPrice(cartValue, smallOrderSurchage, deliveryFee)
-            }
         }
     }
 
     @Test
-    fun `negative delivery fee throws exception`() {
+    fun `negative delivery fee throws exception`(){
         val cartValue = 300
         val smallOrderSurchage = 50
         val deliveryFee = -200
         assertFailsWith<PricingCalculationException> {
-            runBlocking {
-            calculateTotalPrice(cartValue, smallOrderSurchage, deliveryFee) 
-            }
+            calculateTotalPrice(cartValue, smallOrderSurchage, deliveryFee)
         }
     }
 }

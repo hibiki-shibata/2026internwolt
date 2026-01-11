@@ -6,10 +6,10 @@ import kotlinx.coroutines.*
 import org.dopc.model.DeliveryPricing
 import org.dopc.model.DistanceRange
 
-class calculateSmallOrderSurchageTest {
+class CalculateSmallOrderSurchageTest {
 
     @Test
-    fun `general case`() = runBlocking {            
+    fun `general case`() {            
         val cartValue = 400
         val minCarValue = 500
              
@@ -18,7 +18,7 @@ class calculateSmallOrderSurchageTest {
     }
 
     @Test
-    fun `edge case at boundary`() = runBlocking {            
+    fun `edge case at boundary`() {            
         val cartValue = 500
         val minCarValue = 500
         val result = calculateSmallOrderSurchage(cartValue, minCarValue)
@@ -26,7 +26,7 @@ class calculateSmallOrderSurchageTest {
     }
 
     @Test
-    fun `case where cart value exceeds minimum cart value`() = runBlocking {            
+    fun `case where cart value exceeds minimum cart value`() {            
         val cartValue = 600
         val minCarValue = 500
         val result = calculateSmallOrderSurchage(cartValue, minCarValue)
