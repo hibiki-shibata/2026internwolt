@@ -6,6 +6,7 @@ import kotlin.test.assertTrue
 import kotlin.math.abs
 import kotlinx.coroutines.*
 import org.dopc.model.Coordinates
+import org.dopc.exception.*
 
 class CalculateDistanceTest {
     @Test
@@ -54,7 +55,7 @@ class CalculateDistanceInvalidCoordinatesTest {
     fun `should throw exception when venue latitude is invalid`() {
         val venue = Coordinates(lon = 139.74546295402249, lat = 95.0)
 
-        assertFailsWith<Exception> {
+        assertFailsWith<DeliveryDistanceCalculationException> {
             calculateDistance(venue, validUser)
         }
     }
@@ -63,7 +64,7 @@ class CalculateDistanceInvalidCoordinatesTest {
     fun `should throw exception when venue longitude is invalid`() {
         val venue = Coordinates(lon = 200.0, lat = 35.658581)
 
-        assertFailsWith<Exception> {
+        assertFailsWith<DeliveryDistanceCalculationException> {
             calculateDistance(venue, validUser)
         }
     }
@@ -72,7 +73,7 @@ class CalculateDistanceInvalidCoordinatesTest {
     fun `should throw exception when user latitude is invalid`() {
         val user = Coordinates(lon = 151.176456945061, lat = -95.0)
 
-        assertFailsWith<Exception> {
+        assertFailsWith<DeliveryDistanceCalculationException> {
             calculateDistance(validVenue, user)
         }
     }
@@ -81,7 +82,7 @@ class CalculateDistanceInvalidCoordinatesTest {
     fun `should throw exception when user longitude is invalid`() {
         val user = Coordinates(lon = -190.0, lat = -33.9405639972)
 
-        assertFailsWith<Exception> {
+        assertFailsWith<DeliveryDistanceCalculationException> {
             calculateDistance(validVenue, user)
         }
     }
@@ -90,7 +91,7 @@ class CalculateDistanceInvalidCoordinatesTest {
     fun `should throw exception when both venue latitude and longitude are invalid`() {
         val venue = Coordinates(lon = 190.0, lat = 95.0) 
 
-        assertFailsWith<Exception> {
+        assertFailsWith<DeliveryDistanceCalculationException> {
             calculateDistance(venue, validUser)
         }
     }
@@ -99,7 +100,7 @@ class CalculateDistanceInvalidCoordinatesTest {
     fun `should throw exception when both user latitude and longitude are invalid`() {
         val user = Coordinates(lon = -190.0, lat = -95.0) 
 
-        assertFailsWith<Exception> {
+        assertFailsWith<DeliveryDistanceCalculationException> {
             calculateDistance(validVenue, user)
         }
     }

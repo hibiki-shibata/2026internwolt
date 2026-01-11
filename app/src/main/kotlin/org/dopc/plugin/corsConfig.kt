@@ -7,7 +7,10 @@ import io.ktor.server.plugins.cors.routing.*
 fun Application.corsConfig() {
         install(CORS) {
             anyHost()
-            allowHost("localhost:8000")
+            allowHeader("*")
+            allowMethod(io.ktor.http.HttpMethod.Options)
+            allowMethod(io.ktor.http.HttpMethod.Get)
+            allowMethod(io.ktor.http.HttpMethod.Post)
         }
 }
     

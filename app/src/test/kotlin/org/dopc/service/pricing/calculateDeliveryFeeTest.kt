@@ -54,7 +54,7 @@ class CalculateDeliveryFeeFailTest {
     @Test
     fun `distance is NOT in any range - too long`() {
         val deliveryDistance = 1500
-        val exception = assertFailsWith<PricingCalculationException> {
+        assertFailsWith<PricingCalculationException> {
             calculateDeliveryFee(deliveryPricing, deliveryDistance)
         }
     }

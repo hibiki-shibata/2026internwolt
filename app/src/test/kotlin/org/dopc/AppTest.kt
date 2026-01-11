@@ -7,9 +7,9 @@ import io.ktor.server.application.*
 import io.ktor.server.testing.*
 import kotlin.test.*
 
-class ApplicationTest {
-    @Test
-    fun testRoot() = testApplication {
-        assertEquals("hello", "hello")
-    }
-}
+// class ApplicationTest {
+//     @Test
+//     fun testRoot() = testApplication {
+
+//     }
+// }
