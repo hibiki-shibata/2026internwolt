@@ -40,33 +40,39 @@ class calculateTotalPriceTest {
     }
 
     @Test
-    fun `negative cart value throws exception`() = runBlocking {
+    fun `negative cart value throws exception`() {
         val cartValue = -100
         val smallOrderSurchage = 50
         val deliveryFee = 200
 
         assertFailsWith<PricingCalculationException> {
+        runBlocking {
             calculateTotalPrice(cartValue, smallOrderSurchage, deliveryFee)
         }
+     }
     }
 
     @Test
-    fun `negative small order surcharge throws exception`() = runBlocking {
+    fun `negative small order surcharge throws exception`() {
         val cartValue = 300
         val smallOrderSurchage = -50
         val deliveryFee = 200
         assertFailsWith<PricingCalculationException> {
+            runBlocking {
             calculateTotalPrice(cartValue, smallOrderSurchage, deliveryFee)
+            }
         }
     }
 
     @Test
-    fun `negative delivery fee throws exception`() = runBlocking {
+    fun `negative delivery fee throws exception`() {
         val cartValue = 300
         val smallOrderSurchage = 50
         val deliveryFee = -200
         assertFailsWith<PricingCalculationException> {
+            runBlocking {
             calculateTotalPrice(cartValue, smallOrderSurchage, deliveryFee) 
+            }
         }
     }
 }

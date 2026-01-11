@@ -4,9 +4,10 @@ import kotlin.math.*
 import org.dopc.model.Coordinates
 
 suspend fun calculateDistance(
-    venueCoordinates: Coordinates,
+    venueCoordinates: Coordinates,        
     userCoordinates: Coordinates
-    ): Int {    
+    ): Int { 
+        if (!isValidCoordinate(venueCoordinates) || !isValidCoordinate(userCoordinates)) throw Exception("invalid coordinates provided")
         val eathRadius: Double = 6371.0
         val venueLatRadius: Double = Math.toRadians(venueCoordinates.lat)
         val venueLonRadius: Double = Math.toRadians(venueCoordinates.lon)
@@ -22,4 +23,8 @@ suspend fun calculateDistance(
 
         if (straightDistanceMeter < 0) throw Exception("calculated distance was negative")
         return Math.round(straightDistanceMeter).toInt()
+}
+
+private suspend fun isValidCoordinate(coordinates: Coordinates): Boolean {
+    return coordinates.lat in -90.0..90.0 && coordinates.lon in -180.0..180.0    
 }

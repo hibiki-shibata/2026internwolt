@@ -3,6 +3,7 @@
 
 Todo:
 1. Error handling for negative values
+2. Routing logic implementation
 2. Unit tests for every function (Error cases and normal cases in dopcServiceTest.kt)
 3. Integration tests for the entire service
 4. Optimize delivery fee calculation for large datasets
