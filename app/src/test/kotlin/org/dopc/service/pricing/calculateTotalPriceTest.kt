@@ -47,7 +47,7 @@ class CalculateTotalPriceTest {
 
         assertFailsWith<PricingCalculationException> {
             calculateTotalPrice(cartValue, smallOrderSurchage, deliveryFee)
-     }
+        } 
     }
 
     @Test

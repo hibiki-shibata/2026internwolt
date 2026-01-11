@@ -8,7 +8,7 @@ import org.dopc.dto.DopcReqDTO
 import org.dopc.dto.DopcResDTO
 import org.dopc.exception.*
 
-class dopcServiceTest {
+class DopcServiceTest {
         val dopcService = DopcService()
 
         @Test
