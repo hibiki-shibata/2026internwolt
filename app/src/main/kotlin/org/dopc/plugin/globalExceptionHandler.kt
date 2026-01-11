@@ -11,6 +11,7 @@ fun Application.globalExceptionHandler() {
         install(StatusPages) {
             exception<Throwable> { call, cause -> 
                 if(cause is VenueInfoClientException) call.respondText(text = "400: ${cause.message}", status = HttpStatusCode.BadRequest)
+                else if(cause is InvalidClientParam) call.respondText(text = "400: ${cause.message}", status = HttpStatusCode.BadRequest)
                 else if(cause is PricingCalculationException) call.respondText(text = "400: ${cause.message}", status = HttpStatusCode.BadRequest)
                 else if(cause is DeliveryDistanceCalculationException) call.respondText(text = "400: ${cause.message}", status = HttpStatusCode.BadRequest)
                 else call.respondText(text = "500: Unexpected server error Happened:(", status = HttpStatusCode.InternalServerError)                

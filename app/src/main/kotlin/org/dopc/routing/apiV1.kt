@@ -12,13 +12,13 @@ import org.dopc.exception.InvalidClientParam
 
 fun Route.apiV1() {
     get("/delivery-order-price") {    
-        val req = DopcReqDTO(
-                venue_slug = call.request.queryParameters["venue_slug"] ?: throw InvalidClientParam("venue_slug is required"),
-                cart_value = call.request.queryParameters["cart_value"]?.toInt() ?: throw InvalidClientParam("cart_value is required"),
-                user_lon = call.request.queryParameters["user_lon"]?.toDouble() ?: throw InvalidClientParam("user_lon is required"),
-                user_lat = call.request.queryParameters["user_lat"]?.toDouble() ?: throw InvalidClientParam("user_lat is required")
-            )
-        val res: DopcResDTO = DopcService().calculate(req)
+        val req = DopcReqParamsDTO(
+            venue_slug = call.request.queryParameters["venue_slug"] ?: throw InvalidClientParam("venue_slug is required"),
+            cart_value = call.request.queryParameters["cart_value"]?.toIntOrNull() ?: throw InvalidClientParam("cart_value is required and must be an integer"),
+            user_lat = call.request.queryParameters["user_lat"]?.toDoubleOrNull() ?: throw InvalidClientParam("user_lat is required and must be a double"),
+            user_lon = call.request.queryParameters["user_lon"]?.toDoubleOrNull() ?: throw InvalidClientParam("user_lon is required and must be a double")
+        )
+        val res: DopcResJsonDTO = DopcService().calculate(req)
         call.respond(res)
     }
 }
