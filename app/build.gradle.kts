@@ -5,6 +5,7 @@
  * For more details on building Java & JVM projects, please refer to https://docs.gradle.org/9.2.1/userguide/building_java_projects.html in the Gradle documentation.
  */
 
+
 plugins {
     // Apply the org.jetbrains.kotlin.jvm Plugin to add support for Kotlin.
     // alias(libs.plugins.kotlin.jvm)
@@ -20,33 +21,34 @@ repositories {
     mavenCentral()
 }
 
+val ktor_version = "3.3.3"
 dependencies {
+    // Testing
     testImplementation(libs.junit.jupiter.engine)
-
-    implementation("io.ktor:ktor-server-core-jvm:3.3.3")
-    implementation("io.ktor:ktor-server-netty:3.3.3")
-    implementation("ch.qos.logback:logback-classic:1.4.11")
-    implementation("io.ktor:ktor-server-config-yaml:3.3.3")
-    testImplementation("io.ktor:ktor-server-test-host:3.3.3")
-    // testImplementation("org.jetbrains.kotlin:kotlin-test-junit:2.2.21")
+    testImplementation("io.ktor:ktor-server-test-host:$ktor_version")
     testImplementation("org.jetbrains.kotlin:kotlin-test:2.2.21")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.10.2")
+    implementation("io.ktor:ktor-server-core-jvm:$ktor_version")
+    implementation("io.ktor:ktor-server-netty:$ktor_version")
+    implementation("io.ktor:ktor-server-config-yaml:$ktor_version")
+    implementation("ch.qos.logback:logback-classic:1.4.11")
 
     // Ktor Client
-    implementation("io.ktor:ktor-client-core:3.3.3")
-    implementation("io.ktor:ktor-client-cio:3.3.3")
+    implementation("io.ktor:ktor-client-core:$ktor_version")
+    implementation("io.ktor:ktor-client-cio:$ktor_version")
     
     // Client Serialization
-    implementation("io.ktor:ktor-client-content-negotiation:3.3.3")
+    implementation("io.ktor:ktor-client-content-negotiation:$ktor_version")
     // Server Serialization
-    implementation("io.ktor:ktor-server-content-negotiation:3.3.3")
-
-
-    implementation("io.ktor:ktor-serialization-kotlinx-json:3.3.3")
+    implementation("io.ktor:ktor-server-content-negotiation:$ktor_version")
+    // JSON Serialization
+    implementation("io.ktor:ktor-serialization-kotlinx-json:$ktor_version")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
+    // Error Handling
+    implementation("io.ktor:ktor-server-status-pages:$ktor_version")
 
     // CORS
-    implementation("io.ktor:ktor-server-cors:3.3.3")
+    implementation("io.ktor:ktor-server-cors:$ktor_version")
 }
 
 // Apply a specific Java toolchain to ease working on different environments.

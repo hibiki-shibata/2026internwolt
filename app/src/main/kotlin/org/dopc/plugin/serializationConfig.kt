@@ -6,10 +6,6 @@ import io.ktor.serialization.kotlinx.json.*
 
 fun Application.serializationConfig() {
     install(ContentNegotiation) {
-        // json(Json {
-        //     prettyPrint = true
-        //     isLenient = true
-        // })
         json()
     }
 }

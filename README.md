@@ -2,10 +2,8 @@
 
 
 Todo:
-3. Integration tests for the entire service
-3. implement proper Exception types and handling
-4. Optimize delivery fee calculation for large datasets
-5. Add logging for better traceability
-6. Documentation for public functions
-7. Reconsider the function and variable names for clarity
-8. Contentinegotation with ktor config
+2. Global error handling for the API
+1. Integration tests for the entire service
+3. Optimize delivery fee calculation for large datasets
+4. Add logging for better traceability
+5. Documentation for public functions
