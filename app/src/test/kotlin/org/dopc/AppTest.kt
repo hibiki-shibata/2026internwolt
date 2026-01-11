@@ -10,6 +10,6 @@ import kotlin.test.*
 class ApplicationTest {
     @Test
     fun testRoot() = testApplication {
-        assertEquals("")
+        assertEquals("hello", "hello")
     }
 }

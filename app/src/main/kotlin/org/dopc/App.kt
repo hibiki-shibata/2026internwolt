@@ -1,11 +1,16 @@
 package org.dopc
 
 import io.ktor.server.application.*
+import io.ktor.server.plugins.cors.routing.*
+import org.dopc.config.*
 
-suspend fun main(args: Array<String>) {
+
+fun main(args: Array<String>) {
     io.ktor.server.netty.EngineMain.main(args)
 }
 
-suspend fun Application.module() {
+fun Application.module() {
     configureRouting()
+    configureCORS()
+    serializationConfig()
 }
