@@ -3,7 +3,7 @@ package org.dopc.service.deliveryDistance
 import kotlin.math.*
 import org.dopc.model.Coordinates
 
-suspend fun calculateDistance(
+fun calculateDistance(
     venueCoordinates: Coordinates,        
     userCoordinates: Coordinates
     ): Int { 
@@ -25,6 +25,6 @@ suspend fun calculateDistance(
         return Math.round(straightDistanceMeter).toInt()
 }
 
-private suspend fun isValidCoordinate(coordinates: Coordinates): Boolean {
+private fun isValidCoordinate(coordinates: Coordinates): Boolean {
     return coordinates.lat in -90.0..90.0 && coordinates.lon in -180.0..180.0    
 }
