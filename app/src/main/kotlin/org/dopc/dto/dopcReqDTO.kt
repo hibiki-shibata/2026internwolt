@@ -1,5 +1,8 @@
 package org.dopc.dto
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class DopcReqDTO(
     val venue_slug: String,
     val cart_value: Int,

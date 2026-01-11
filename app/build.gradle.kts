@@ -21,13 +21,7 @@ repositories {
 }
 
 dependencies {
-    // Use the Kotlin Test integration.
-    // testImplementation("org.jetbrains.kotlin:kotlin-test")
-    // Use the JUnit 5 integration.
     testImplementation(libs.junit.jupiter.engine)
-    // testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-    // This dependency is used by the application.
-    // implementation(libs.guava)
 
     implementation("io.ktor:ktor-server-core-jvm:3.3.3")
     implementation("io.ktor:ktor-server-netty:3.3.3")
@@ -38,13 +32,16 @@ dependencies {
     testImplementation("org.jetbrains.kotlin:kotlin-test:2.2.21")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.10.2")
 
-
     // Ktor Client
     implementation("io.ktor:ktor-client-core:3.3.3")
     implementation("io.ktor:ktor-client-cio:3.3.3")
     
-    // Serialization
+    // Client Serialization
     implementation("io.ktor:ktor-client-content-negotiation:3.3.3")
+    // Server Serialization
+    implementation("io.ktor:ktor-server-content-negotiation:3.3.3")
+
+
     implementation("io.ktor:ktor-serialization-kotlinx-json:3.3.3")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
 

@@ -4,7 +4,7 @@ import io.ktor.server.routing.*
 import io.ktor.server.application.*
 import io.ktor.server.response.*
 import org.dopc.service.DopcService
-import org.dopc.dto.DopcReqDTO
+import org.dopc.dto.*
 
 
 fun Route.apiV1() {
@@ -15,7 +15,7 @@ fun Route.apiV1() {
             user_lon = call.request.queryParameters["user_lon"]?.toDouble() ?: throw IllegalArgumentException("user_lon is required"),
             user_lat = call.request.queryParameters["user_lat"]?.toDouble() ?: throw IllegalArgumentException("user_lat is required")
         )
-        val res = DopcService().calculate(req)
-        call.respondText(res.toString())
+        val res: DopcResDTO = DopcService().calculate(req)
+        call.respond(res)
     }
 }

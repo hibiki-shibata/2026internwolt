@@ -1,5 +1,8 @@
 package org.dopc.dto
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class DopcResDTO(
  val total_price: Int,
  val small_order_surcharge: Int,
@@ -7,6 +10,7 @@ data class DopcResDTO(
  val delivery: Delivery,
 )
 
+@Serializable
 data class Delivery(
     val fee: Int,
     val distance: Int
