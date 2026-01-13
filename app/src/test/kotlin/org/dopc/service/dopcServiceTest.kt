@@ -4,7 +4,7 @@ import kotlin.test.*
 import kotlinx.coroutines.*
 import org.dopc.dto.*
 import org.dopc.dto.DopcReqParamsDTO
-import org.dopc.exception.*
+import org.dopc.exception.server.*
 
 class DopcServiceTest {
     val dopcService = DopcService()

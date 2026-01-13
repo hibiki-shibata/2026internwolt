@@ -2,7 +2,7 @@ package org.dopc.service.deliveryDistance
 
 import kotlin.math.*
 import org.dopc.model.Coordinates
-import org.dopc.exception.DeliveryDistanceCalculationException
+import org.dopc.exception.server.DeliveryDistanceCalculationException
 
 fun calculateDistance(
     venueCoordinates: Coordinates,        

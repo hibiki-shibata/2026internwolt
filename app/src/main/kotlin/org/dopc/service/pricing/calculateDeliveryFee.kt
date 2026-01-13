@@ -2,7 +2,7 @@ package org.dopc.service.pricing
 
 import org.dopc.model.DeliveryPricing
 import org.dopc.model.DistanceRange
-import org.dopc.exception.PricingCalculationException
+import org.dopc.exception.server.PricingCalculationException
 
 fun calculateDeliveryFee(deliveryPricing: DeliveryPricing, deliveryDistance: Int): Int {
     val range: DistanceRange = getApplicableDistanceRange(deliveryPricing, deliveryDistance)

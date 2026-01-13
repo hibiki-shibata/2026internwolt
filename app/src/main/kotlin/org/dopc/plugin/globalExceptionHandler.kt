@@ -5,7 +5,8 @@ import io.ktor.server.application.*
 import io.ktor.server.response.*
 import io.ktor.server.plugins.statuspages.*
 import io.ktor.http.*
-import org.dopc.exception.*
+import org.dopc.exception.client.HttpClientBaseException
+import org.dopc.exception.server.InternalServerBaseException
 
 fun Application.globalExceptionHandler() {
         install(StatusPages) {

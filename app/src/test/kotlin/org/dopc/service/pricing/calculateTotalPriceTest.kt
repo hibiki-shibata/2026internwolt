@@ -5,7 +5,7 @@ import kotlin.test.assertEquals
 import kotlinx.coroutines.*
 import org.dopc.model.DeliveryPricing
 import org.dopc.model.DistanceRange
-import org.dopc.exception.PricingCalculationException
+import org.dopc.exception.server.*
 
 
 class CalculateTotalPriceTest {

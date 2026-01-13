@@ -1,4 +1,4 @@
-package org.dopc.exception
+package org.dopc.mapper
 
 import org.dopc.dto.DopcReqParamsDTO
 import org.dopc.exception.client.*

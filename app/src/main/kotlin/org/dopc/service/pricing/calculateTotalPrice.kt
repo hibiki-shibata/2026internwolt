@@ -1,6 +1,6 @@
 package org.dopc.service.pricing
 
-import org.dopc.exception.PricingCalculationException
+import org.dopc.exception.server.PricingCalculationException
 
 fun calculateTotalPrice(cartValue: Int, smallOrderSurchage: Int, deliveryFee: Int): Int {
     if (cartValue < 0 || smallOrderSurchage < 0 || deliveryFee < 0) throw PricingCalculationException("Cart value, small order surcharge, and delivery fee must be non-negative")

@@ -1,7 +1,7 @@
-package org.dopc.exception
+package org.dopc.exception.client
 
 import io.ktor.http.*
 
 class InvalidClientParamException(
     override val message: String = "Invalid parameter provided by client"
-) : HttpBaseException(code = HttpStatusCode.BadRequest, message = message)
+) : HttpClientBaseException(code = HttpStatusCode.BadRequest, message = message)
