@@ -4,4 +4,4 @@ import io.ktor.http.*
 
 class InvalidClientParamException(
     override val message: String = "Invalid parameter provided by client"
-) : HttpClientBaseException(code = HttpStatusCode.BadRequest, message = message)
+) : HttpClientExceptionBase(code = HttpStatusCode.BadRequest, message = message)

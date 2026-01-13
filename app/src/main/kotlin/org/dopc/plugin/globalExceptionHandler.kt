@@ -5,17 +5,17 @@ import io.ktor.server.application.*
 import io.ktor.server.response.*
 import io.ktor.server.plugins.statuspages.*
 import io.ktor.http.*
-import org.dopc.exception.client.HttpClientBaseException
-import org.dopc.exception.server.InternalServerBaseException
+import org.dopc.exception.client.*
+import org.dopc.exception.server.*
 
 fun Application.globalExceptionHandler() {
         install(StatusPages) {
-            exception<HttpClientBaseException> { call, cause -> 
+            exception<HttpClientExceptionBase> { call, cause -> 
                 // call.respondText(text = "${cause.code}: ${cause.message}", status = HttpStatusCode.BadRequest)
                 call.respondText(text = "${cause.code}: ${cause.message}", status = cause.code)
             }
 
-            exception<InternalServerBaseException> { call, cause -> 
+            exception<InternalServerExceptionBase> { call, cause -> 
                 call.respondText(text = "${cause.code}: ${cause.message}", status = cause.code)
             }
 
