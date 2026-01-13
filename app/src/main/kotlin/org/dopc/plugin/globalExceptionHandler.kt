@@ -9,13 +9,18 @@ import org.dopc.exception.*
 
 fun Application.globalExceptionHandler() {
         install(StatusPages) {
+            exception<HttpClientBaseException> { call, cause -> 
+                // call.respondText(text = "${cause.code}: ${cause.message}", status = HttpStatusCode.BadRequest)
+                call.respondText(text = "${cause.code}: ${cause.message}", status = cause.code)
+            }
+
+            exception<InternalServerBaseException> { call, cause -> 
+                call.respondText(text = "${cause.code}: ${cause.message}", status = cause.code)
+            }
+
             exception<Throwable> { call, cause -> 
-                if(cause is VenueInfoClientException) call.respondText(text = "400: ${cause.message}", status = HttpStatusCode.BadRequest)
-                else if(cause is InvalidClientParam) call.respondText(text = "400: ${cause.message}", status = HttpStatusCode.BadRequest)
-                else if(cause is PricingCalculationException) call.respondText(text = "400: ${cause.message}", status = HttpStatusCode.BadRequest)
-                else if(cause is DeliveryDistanceCalculationException) call.respondText(text = "400: ${cause.message}", status = HttpStatusCode.BadRequest)
-                else call.respondText(text = "500: Unexpected server error Happened:(", status = HttpStatusCode.InternalServerError)                
-        }
+                call.respondText(text = "500: Unexpected server error Happened:(", status = HttpStatusCode.InternalServerError)                
+            }
     }
 }
     
