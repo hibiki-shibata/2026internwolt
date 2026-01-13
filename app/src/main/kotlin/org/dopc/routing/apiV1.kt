@@ -17,7 +17,7 @@ fun Route.apiV1() {
             user_lat = call.request.queryParameters["user_lat"]?.toDouble() ?: throw InvalidClientParamException("user_lat is required"),
             user_lon = call.request.queryParameters["user_lon"]?.toDouble() ?: throw InvalidClientParamException("user_lon is required"),
         ).validate()
-            
+
         val res: DopcResJsonDTO = DopcService().calculate(req)
         call.respond(res)
     }

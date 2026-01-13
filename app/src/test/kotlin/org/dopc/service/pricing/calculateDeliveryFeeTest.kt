@@ -6,6 +6,7 @@ import kotlinx.coroutines.*
 import org.dopc.model.DeliveryPricing
 import org.dopc.model.DistanceRange
 import org.dopc.exception.server.*
+import org.dopc.exception.client.*
 
 class CalculateDeliveryFeeTest {
 
@@ -54,7 +55,7 @@ class CalculateDeliveryFeeFailTest {
     @Test
     fun `distance is NOT in any range - too long`() {
         val deliveryDistance = 1500
-        assertFailsWith<PricingCalculationException> {
+        assertFailsWith<OutOfDeliveryAreaException> {
             calculateDeliveryFee(deliveryPricing, deliveryDistance)
         }
     }

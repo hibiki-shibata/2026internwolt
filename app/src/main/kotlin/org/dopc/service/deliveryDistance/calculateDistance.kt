@@ -8,7 +8,7 @@ fun calculateDistance(
     venueCoordinates: Coordinates,        
     userCoordinates: Coordinates
     ): Int { 
-        if (!isValidCoordinate(venueCoordinates) || !isValidCoordinate(userCoordinates)) throw DeliveryDistanceCalculationException("invalid coordinates provided")
+        if (!isValidCoordinate(venueCoordinates) || !isValidCoordinate(userCoordinates)) throw DeliveryDistanceCalculationException("Invalid coordinates were passed")
         val eathRadius: Double = 6371.0
         val venueLatRadius: Double = Math.toRadians(venueCoordinates.lat)
         val venueLonRadius: Double = Math.toRadians(venueCoordinates.lon)
@@ -22,7 +22,7 @@ fun calculateDistance(
 
         val straightDistanceMeter: Double = eathRadius * centralAngle * 1000        
 
-        if (straightDistanceMeter < 0) throw DeliveryDistanceCalculationException("Negative distance calculated")
+        if (straightDistanceMeter < 0) throw DeliveryDistanceCalculationException("Negative distance was calculated")
         return Math.round(straightDistanceMeter).toInt()
 }
 
