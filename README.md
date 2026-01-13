@@ -65,6 +65,7 @@ app/
     └── test/
         └── kotlin/
             └── dopc/
+                ├── AppIntegrationTest.kt               # Integration tests for the entire application
                 ├── service/
                 │   ├── pricing/
                 │   │   ├── calculateDeliveryFeeTest.kt        # Unit tests for 'calculateDeliveryFee.kt'
@@ -79,7 +80,6 @@ app/
 Code Owner: hibiki.shibata@wolt.com
 
 Todo:
-1. Integration tests for the entire service
 4. Add logging for better traceability
 5. Documentation for public functions
 6. Implement caching for venue information to reduce API calls

@@ -1,9 +1,4 @@
 package org.dopc
-// class ApplicationTest {
-//     @Test
-//     fun testRoot() = testApplication {
-//     }
-// }
 
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
@@ -128,5 +123,4 @@ class ApplicationFailTest {
         val response = client.get(reqURI)
         assertEquals(HttpStatusCode.BadRequest, response.status)
     }
-
 }
