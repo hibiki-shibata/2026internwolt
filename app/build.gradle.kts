@@ -4,20 +4,14 @@
  * This generated file contains a sample Kotlin application project to get you started.
  * For more details on building Java & JVM projects, please refer to https://docs.gradle.org/9.2.1/userguide/building_java_projects.html in the Gradle documentation.
  */
-
-
 plugins {
-    // Apply the org.jetbrains.kotlin.jvm Plugin to add support for Kotlin.
-    // alias(libs.plugins.kotlin.jvm)
     id("org.jetbrains.kotlin.jvm") version "2.2.21"
     id("io.ktor.plugin") version "3.3.3"
-    
     kotlin("plugin.serialization") version "2.3.0"
     application
 }
 
 repositories {
-    // Use Maven Central for resolving dependencies.
     mavenCentral()
 }
 
@@ -35,8 +29,7 @@ dependencies {
 
     // Ktor Client
     implementation("io.ktor:ktor-client-core:$ktor_version")
-    implementation("io.ktor:ktor-client-cio:$ktor_version")
-    
+    implementation("io.ktor:ktor-client-cio:$ktor_version")    
     // Client Serialization
     implementation("io.ktor:ktor-client-content-negotiation:$ktor_version")
     // Server Serialization
@@ -46,12 +39,10 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
     // Error Handling
     implementation("io.ktor:ktor-server-status-pages:$ktor_version")
-
     // CORS
     implementation("io.ktor:ktor-server-cors:$ktor_version")
 }
 
-// Apply a specific Java toolchain to ease working on different environments.
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(21)
