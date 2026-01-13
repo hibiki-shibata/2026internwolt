@@ -6,7 +6,7 @@ import io.ktor.server.response.*
 import io.ktor.server.plugins.statuspages.*
 import io.ktor.http.*
 import org.dopc.exception.client.*
-import org.dopc.exception.server.*
+import io.ktor.client.plugins.*
 
 fun Application.globalExceptionHandler() {
         install(StatusPages) {
@@ -17,6 +17,10 @@ fun Application.globalExceptionHandler() {
 
             exception<InternalServerExceptionBase> { call, cause -> 
                 call.respondText(text = "${cause.code}: ${cause.message}", status = cause.code)
+            }
+
+            exception<HttpRequestTimeoutException> { call, cause ->
+                call.respondText(text = "504: HTTP Request Timeout Error occurred", status = HttpStatusCode.GatewayTimeout)
             }
 
             exception<Throwable> { call, cause -> 

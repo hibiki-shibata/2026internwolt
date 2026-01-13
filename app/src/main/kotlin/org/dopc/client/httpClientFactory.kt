@@ -13,6 +13,9 @@ object HttpClientFactory {
             install(ContentNegotiation) {
                 json()
             }
+            install(HttpTimeout){
+                requestTimeoutMillis = 5000
+            }
             install(HttpRequestRetry) {
                 maxRetries = 3
                 exponentialDelay()

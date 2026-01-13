@@ -14,7 +14,7 @@ class VenueInfoClient(
 ) {
     suspend fun getStaticVenueInfo(venueSlug: String): StaticVenueInfo {
         val clientURL = "https://consumer-api.development.dev.woltapi.com/home-assignment-api/v1/venues/$venueSlug/static"
-        val response: HttpResponse = client.get(clientURL)
+        val response: HttpResponse = client.get(clientURL)        
         if (!response.status.isSuccess()) throw VenueInfoClientException("Failed to fetch venue info from ${clientURL}: ${response.status}")
         return response.body()
     }
