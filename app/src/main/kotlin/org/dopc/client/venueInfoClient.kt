@@ -1,7 +1,7 @@
 package org.dopc.client
 
-import org.dopc.model.DynamicVenueInfo
-import org.dopc.model.StaticVenueInfo
+import org.dopc.dto.venueinfo.StaticVenueInfo
+import org.dopc.dto.venueinfo.DynamicVenueInfo
 import org.dopc.exception.server.VenueInfoClientException
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body

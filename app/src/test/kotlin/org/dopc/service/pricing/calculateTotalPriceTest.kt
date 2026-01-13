@@ -3,8 +3,8 @@ package org.dopc.service.pricing
 import kotlin.test.*
 import kotlin.test.assertEquals
 import kotlinx.coroutines.*
-import org.dopc.model.DeliveryPricing
-import org.dopc.model.DistanceRange
+import org.dopc.dto.venueinfo.*
+import org.dopc.exception.client.*
 import org.dopc.exception.server.*
 
 

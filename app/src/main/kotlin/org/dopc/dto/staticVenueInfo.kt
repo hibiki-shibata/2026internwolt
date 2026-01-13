@@ -1,4 +1,4 @@
-package org.dopc.model
+package org.dopc.dto.venueinfo
 
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonIgnoreUnknownKeys

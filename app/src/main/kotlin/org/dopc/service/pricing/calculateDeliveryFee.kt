@@ -1,7 +1,7 @@
 package org.dopc.service.pricing
 
-import org.dopc.model.DeliveryPricing
-import org.dopc.model.DistanceRange
+import org.dopc.dto.venueinfo.DeliveryPricing
+import org.dopc.dto.venueinfo.DistanceRange
 import org.dopc.exception.client.OutOfDeliveryAreaException
 
 fun calculateDeliveryFee(deliveryPricing: DeliveryPricing, deliveryDistance: Int): Int {

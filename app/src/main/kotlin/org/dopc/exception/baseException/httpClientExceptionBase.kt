@@ -1,6 +1,6 @@
 package org.dopc.exception.client
 
-import io.ktor.http.*
+import io.ktor.http.HttpStatusCode
 
 abstract class HttpClientExceptionBase(
     val code: HttpStatusCode? = HttpStatusCode.BadRequest,

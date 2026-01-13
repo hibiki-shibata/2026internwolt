@@ -4,7 +4,7 @@ package org.dopc.config
 import io.ktor.server.application.*
 import io.ktor.server.response.*
 import io.ktor.server.plugins.statuspages.*
-import io.ktor.http.*
+import io.ktor.http.HttpStatusCode
 import org.dopc.exception.client.*
 import org.dopc.exception.server.*
 

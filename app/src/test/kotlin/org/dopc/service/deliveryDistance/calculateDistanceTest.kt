@@ -5,7 +5,7 @@ import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 import kotlin.math.abs
 import kotlinx.coroutines.*
-import org.dopc.model.Coordinates
+import org.dopc.dto.venueinfo.Coordinates
 import org.dopc.exception.server.*
 
 class CalculateDistanceTest {

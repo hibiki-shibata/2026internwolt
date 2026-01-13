@@ -1,9 +1,11 @@
 package org.dopc.service
 
 import org.dopc.dto.*
+import org.dopc.dto.venueinfo.*
 import org.dopc.service.pricing.*
-import org.dopc.service.deliveryDistance.*
-import org.dopc.model.*
+import org.dopc.service.deliveryDistance.calculateDistance
+import org.dopc.dto.venueinfo.DynamicVenueInfo
+import org.dopc.dto.venueinfo.StaticVenueInfo
 import org.dopc.client.VenueInfoClient
 import kotlinx.coroutines.*
 

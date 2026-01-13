@@ -1,6 +1,6 @@
 package org.dopc.exception.server
 
-import io.ktor.http.*
+import io.ktor.http.HttpStatusCode
 
 class VenueInfoClientException(
     override val message: String,
