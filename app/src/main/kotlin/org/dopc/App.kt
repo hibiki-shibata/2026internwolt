@@ -13,4 +13,5 @@ fun Application.module() {
     corsConfig()
     serializationConfig()
     globalExceptionHandler()
+    callingLogConfig()
 }
