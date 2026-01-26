@@ -38,7 +38,6 @@ class VenueInfoClientFailTest {
         assertFailsWith<VenueInfoClientException> {
             runBlocking {
                 val result = venueInfoClient.getDynamicVenueInfo(invalidVenueName)
-                println(result)
             }
         }    
     }

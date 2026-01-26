@@ -18,13 +18,19 @@ The **Ktor Netty Server** is configured to listen on:
 ./gradlew test
 ```
 
+## 🚀 Build & Run Application
+### Build & Run Jar file
+```bash
+./gradlew runFatJar
+```
+## Or Build & Run Manually
 ### 1. Build Jar file
 ```bash
-./gradlew clean build
+./gradlew clean buildFatJar
 ```
 ### 2. Run Jar file
 ```bash
-java -jar ~/2026internWolt/app/build/libs/app.jar
+java -jar ~/2026internWolt/app/build/libs/2026woltinternExecutable.jar
 ```
 
 ## 🔎 Source Dictionaly
