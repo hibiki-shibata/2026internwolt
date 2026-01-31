@@ -8,11 +8,16 @@ import org.dopc.dto.venueinfo.DynamicVenueInfo
 import org.dopc.dto.venueinfo.StaticVenueInfo
 import org.dopc.client.VenueInfoClient
 import kotlinx.coroutines.*
+import io.ktor.server.application.*
+import org.slf4j.LoggerFactory
+import org.slf4j.Logger
 
 class DopcService(
-    private val venueInfoClient: VenueInfoClient = VenueInfoClient()
+    private val venueInfoClient: VenueInfoClient = VenueInfoClient(),
+    private val log: Logger = LoggerFactory.getLogger(DopcService::class.java)
 ) {
-    suspend fun calculate(reqParams: DopcReqParamsDTO): DopcResJsonDTO = coroutineScope {        
+    suspend fun calculate(reqParams: DopcReqParamsDTO): DopcResJsonDTO = coroutineScope {  
+        log.warn("Calculating DOPC for request: $reqParams")
         // Reduce latency by letting external client req in parallel
         val dynamicVenueInfoDeferred = async {venueInfoClient.getDynamicVenueInfo(reqParams.venue_slug)}
         val staticVenueInfoDeferred = async {venueInfoClient.getStaticVenueInfo(reqParams.venue_slug)}

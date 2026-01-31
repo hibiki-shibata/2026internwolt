@@ -11,10 +11,10 @@ import org.slf4j.event.Level
 
 fun Application.callingLogConfig() {
     install(CallLogging){
-        level = Level.INFO;
+        level = Level.INFO
         filter { call ->
-            call.request.path().startsWith("/api/v1")
-        };
+            call.request.path().startsWith("/api/v1")            
+        }
         format { call ->
             val status = call.response.status()
             val httpMethod = call.request.httpMethod.value
